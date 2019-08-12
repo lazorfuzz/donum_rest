@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///static/db/donum.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 CORS(app)
 db.init_app(app)
-db.drop_all(app=app)
+# db.drop_all(app=app)
 db.create_all(app=app)
 api = Api(app)
 
@@ -25,9 +25,8 @@ def populate_db():
   with app.app_context():
     db.session.add(Organization('San Martin Animal Shelter', '12370 Murphy Ave, San Martin, CA 95046', '(408) 686-3900', 5))
     db.session.commit()
-    
 
-populate_db()
+# populate_db()
 
 if __name__ == '__main__':
     app.run(debug=True)
